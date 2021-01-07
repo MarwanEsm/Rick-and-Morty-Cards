@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import ReactCardFlip from "react-card-flip";
+import FrontSide from './components/frontSide';
+import BackSide from "./components/backSide";
+
 
 ReactDOM.render(
   <React.StrictMode>

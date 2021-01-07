@@ -27,9 +27,14 @@ class FrontSide extends Component {
   }
 
   render() {
+    const imageStyle = {
+      border: 3,
+      borderColor: "red",
+      borderRadius: 3,
+    };
     return (
       <div>
-        <img src={this.state.characterImage} />
+        <img src={this.state.characterImage} style={imageStyle} />
       </div>
     );
   }
