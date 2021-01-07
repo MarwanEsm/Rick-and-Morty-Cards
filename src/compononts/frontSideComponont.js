@@ -32,14 +32,15 @@ class Image extends Component {
       <div className="image">
         <image
           style={imageCOntainerStyle}
-          src={}
+          src={this.state.dataSource.results.image}
         />
       </div>
     );
   }
 }
 
-ReactDOM.render(<FrontSideComponot/>,document.getElementById('root'))
+
+
 // ========================================
 
 // If you want to start measuring performance in your app, pass a function
