@@ -17,8 +17,8 @@ class FlipCard extends Component {
     return (
       <div onFirstClick={this.flip} onSecondClic={this.state.flipped}>
         ;
-        <FrontSideComponot />
-        <BackSideComponot />
+        <FrontSide />
+        <BackSide />
       </div>
     );
   }
