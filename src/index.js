@@ -27,7 +27,8 @@ class PageStyle extends Component {
   changeHandler(event) {
     this.setState({ search: event.target.value });
   }
-  clickHandler() {}
+  /* clickHandler() {} the function should display the reasearched character*/
+
   render() {
     const styleHeader = {
       fontFamily: "lucida sans",
@@ -70,49 +71,77 @@ class PageStyle extends Component {
   }
 }
 
-class FrontSideComponot extends Component{
-
+class FrontSideComponot extends Component {
   render() {
-    return (<div className='frontSide'>
-      <Image />
-      
-    </div>
-      
-    )
+    return (
+      <div className="frontSide">
+        <Image />
+      </div>
+    );
   }
 }
+
+/*I think here a loop function to display images is missing*/
 
 class Image extends Component {
   render() {
-    return (<div className='image'>
-      <image src={this.state.dataSource.results.image}/>
-        
-    </div>)
+    const imageCOntainerStyle = {
+      border: 4,
+      borderColor: "#ff3333",
+      borderRadius: 3,
+    };
+    return (
+      <div className="image">
+        <image
+          style={imageCOntainerStyle}
+          src={this.state.dataSource.results.image}
+        />
+      </div>
+    );
   }
 }
 
-class BackSideComponot extends Component{
+class BackSideComponot extends Component {
   constructor(props) {
     super(props);
-    this.moreHandler = this.moreHandler.bind(this)
-    this.state = { more: '' };
+    this.showMoreHandler = this.showMoreHandler.bind(this);
+    this.state = { more: "" };
   }
 
-  /*moreHandler() {did not know how to use this function to display the bigger picture and show more details
+  /*showMoreHandler() {did not know how to use this function to display the bigger picture and show more details
     
   }*/
 
   render() {
-    return (<div className='backSide'>
-      <p>{this.state.dataSource.results.name}</p>
-      <button onClick={this.moreHandler}>Learn More</button>
-    </div>)
+    return (
+      <div className="backSide">
+        <p>{this.state.dataSource.results.name}</p>
+        <button onClick={this.moreHandler}>Learn More</button>
+      </div>
+    );
   }
-
-
 }
 
+class FlipCard extends Component {
+  constructor(props) {
+    super(props);
 
+    this.state = { flipped: false };
+    this.flipe = this.flip.bind(this);
+  }
+  flip() {
+    this.setState({ flipped: this.state.flipped });
+  }
+  render() {
+    return (
+      <div onFirstClick={this.flip} onSecondClic={this.state.flip}>
+        ;
+        <FrontSideComponot />
+        <BackSideComponot />
+      </div>
+    );
+  }
+}
 
 class FetchData extends Component {
   constructor(props) {
@@ -138,18 +167,13 @@ class FetchData extends Component {
   }
 
   render() {
-    
-      
     return (
       <div>
-        <PageStyle/>
-        <FrontSideComponot />
-        <BackSideComponot />
+        <PageStyle />
+        <FlipCard />
       </div>
     );
-          
-  
-}
+  }
 }
 
 ReactDOM.render(<FetchData />, document.getElementById("root"));
