@@ -27,7 +27,7 @@ class PageStyle extends Component {
   changeHandler(event) {
     this.setState({ search: event.target.value });
   }
-  /* clickHandler() {} the function should display the reasearched character*/
+  // clickHandler() {} the function should display the reasearched character
 
   render() {
     const styleHeader = {
@@ -50,6 +50,7 @@ class PageStyle extends Component {
     const buttonStyling = {
       textAlign: "center",
     };
+
     return (
       <fieldset style={backgroundHeader}>
         <legend style={styleHeader}>
@@ -71,39 +72,6 @@ class PageStyle extends Component {
   }
 }
 
-class FetchData extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true,
-      dataSource: null,
-    };
-  }
-  componentDidMount() {
-    fetch("https://rickandmortyapi.com/api/character/")
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          isLoading: false,
-          dataSource: responseJson.results,
-        });
-      })
-
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  render() {
-    return (
-      <div>
-        <PageStyle />
-        <FlipCard />
-      </div>
-    );
-  }
-}
-
 class FrontSideComponot extends Component {
   render() {
     return (
@@ -114,7 +82,7 @@ class FrontSideComponot extends Component {
   }
 }
 
-/*I think here a loop function to display images is missing*/
+/*I think here a loop function is required to display image in each container*/
 
 class Image extends Component {
   render() {
@@ -138,18 +106,18 @@ class BackSideComponot extends Component {
   constructor(props) {
     super(props);
     this.showMoreHandler = this.showMoreHandler.bind(this);
-    this.state = { more: "" };
+    this.state = { showmore: "" };
   }
 
   /*showMoreHandler() {did not know how to use this function to display the bigger picture and show more details
-    
+
   }*/
 
   render() {
     return (
       <div className="backSide">
         <p>{this.state.dataSource.results.name}</p>
-        <button onClick={this.moreHandler}>Learn More</button>
+        <button onClick={this.showMoreHandler}>Show More</button>
       </div>
     );
   }
@@ -167,7 +135,7 @@ class FlipCard extends Component {
   }
   render() {
     return (
-      <div onFirstClick={this.flip} onSecondClic={this.state.flip}>
+      <div onFirstClick={this.flip} onSecondClic={this.state.flipped}>
         ;
         <FrontSideComponot />
         <BackSideComponot />
@@ -176,7 +144,39 @@ class FlipCard extends Component {
   }
 }
 
+class FetchData extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      dataSource: null,
+    };
+  }
+  componentDidMount() {
+    fetch("https://rickandmortyapi.com/api/character/")
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson.results,
+        });
+      })
 
+      .catch((error) => {
+        return <h1>{error}</h1>;
+      });
+  }
+
+  render() {
+    return (
+      <div>
+        <PageStyle />
+
+        <FlipCard />
+      </div>
+    );
+  }
+}
 
 ReactDOM.render(<FetchData />, document.getElementById("root"));
 
