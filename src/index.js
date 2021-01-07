@@ -9,37 +9,7 @@ ReactDOM.render(
   document.getElementById("root")
 );
 
-class FrontSideComponot extends Component {
-  render() {
-    return (
-      <div className="frontSide">
-        <Image />
-      </div>
-    );
-  }
-}
 
-/*I think loop function is required here to display an image in each container*/
-
-class Image extends Component {
-  render() {
-    const imageCOntainerStyle = {
-      border: 4,
-      borderColor: "#ff3333",
-      borderRadius: 3,
-    };
-    return (
-      <div className="image">
-        <image
-          style={imageCOntainerStyle}
-          src={}
-        />
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<FrontSideComponot/>,document.getElementById('root'))
 // ========================================
 
 // If you want to start measuring performance in your app, pass a function
