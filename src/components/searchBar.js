@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 
-
 ReactDOM.render(
   <React.StrictMode>
     <App />
@@ -68,3 +67,4 @@ class SearchBar extends Component {
   }
 }
 
+ReactDOM.render(<SearchBar />, document.getElementById("root"));

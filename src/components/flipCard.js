@@ -1,7 +1,14 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+import ReactCardFlip from "react-card-flip";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
+);
 
 class FlipCard extends Component {
   constructor(props) {
@@ -15,11 +22,11 @@ class FlipCard extends Component {
   }
   render() {
     return (
-      <div onFirstClick={this.flip} onSecondClic={this.state.flipped}>
-        ;
-        <FrontSide />
-        <BackSide />
-      </div>
+      <ReactCardFlip>
+        <FrontSide onClick={this.flip} flipDirection="horizontal" />
+        <BackSide onClick={this.flip} flipDirection="horizontal" />
+      </ReactCardFlip>
     );
   }
 }
+ReactDOM.render(<FlipCard />, document.getElementById("root"));
