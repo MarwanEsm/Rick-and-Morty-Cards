@@ -71,6 +71,39 @@ class PageStyle extends Component {
   }
 }
 
+class FetchData extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isLoading: true,
+      dataSource: null,
+    };
+  }
+  componentDidMount() {
+    fetch("https://rickandmortyapi.com/api/character/")
+      .then((response) => response.json())
+      .then((responseJson) => {
+        this.setState({
+          isLoading: false,
+          dataSource: responseJson.results,
+        });
+      })
+
+      .catch((error) => {
+        console.log(error);
+      });
+  }
+
+  render() {
+    return (
+      <div>
+        <PageStyle />
+        <FlipCard />
+      </div>
+    );
+  }
+}
+
 class FrontSideComponot extends Component {
   render() {
     return (
@@ -143,38 +176,7 @@ class FlipCard extends Component {
   }
 }
 
-class FetchData extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isLoading: true,
-      dataSource: null,
-    };
-  }
-  componentDidMount() {
-    fetch("https://rickandmortyapi.com/api/character/")
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          isLoading: false,
-          dataSource: responseJson.results,
-        });
-      })
 
-      .catch((error) => {
-        console.log(error);
-      });
-  }
-
-  render() {
-    return (
-      <div>
-        <PageStyle />
-        <FlipCard />
-      </div>
-    );
-  }
-}
 
 ReactDOM.render(<FetchData />, document.getElementById("root"));
 
