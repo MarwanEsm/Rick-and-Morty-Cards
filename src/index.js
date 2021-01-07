@@ -70,6 +70,50 @@ class PageStyle extends Component {
   }
 }
 
+class FrontSideComponot extends Component{
+
+  render() {
+    return (<div className='frontSide'>
+      <Image />
+      
+    </div>
+      
+    )
+  }
+}
+
+class Image extends Component {
+  render() {
+    return (<div className='image'>
+      <image src={this.state.dataSource.results.image}/>
+        
+    </div>)
+  }
+}
+
+class BackSideComponot extends Component{
+  constructor(props) {
+    super(props);
+    this.moreHandler = this.moreHandler.bind(this)
+    this.state = { more: '' };
+  }
+
+  /*moreHandler() {did not know how to use this function to display the bigger picture and show more details
+    
+  }*/
+
+  render() {
+    return (<div className='backSide'>
+      <p>{this.state.dataSource.results.name}</p>
+      <button onClick={this.moreHandler}>Learn More</button>
+    </div>)
+  }
+
+
+}
+
+
+
 class FetchData extends Component {
   constructor(props) {
     super(props);
@@ -94,18 +138,18 @@ class FetchData extends Component {
   }
 
   render() {
-    if (this.state.isLoading) {
-      return <PageStyle />;
-    } else {
-      const image = this.state.dataSource.map((result) => {
-        return (
-          <ul>
-            <li>{image}</li>
-          </ul>
-        );
-      });
-    }
-  }
+    
+      
+    return (
+      <div>
+        <PageStyle/>
+        <FrontSideComponot />
+        <BackSideComponot />
+      </div>
+    );
+          
+  
+}
 }
 
 ReactDOM.render(<FetchData />, document.getElementById("root"));
