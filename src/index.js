@@ -20,18 +20,21 @@ class FlipCard extends Component {
       characterName: null,
     };
   }
-  flip(event) {
-    this.setState({ flipped: event.state.flipped });
-  }
 
   async componentDidMount() {
     const url = "https://rickandmortyapi.com/api/character/";
     const response = await fetch(url);
     const data = await response.json();
     this.setState({
-      flipped: true,
       characterImage: data.results[0].image,
       characterName: data.results[0].name,
+    });
+  }
+
+  flip(event) {
+    this.setState({
+      flipped: event.state.flipped,
+     
     });
   }
   render() {
