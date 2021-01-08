@@ -13,13 +13,12 @@ ReactDOM.render(
 class FlipCard extends Component {
   constructor(props) {
     super(props);
-
+    this.flipe = this.flip.bind(this);
     this.state = {
       flipped: false,
       characterImage: null,
       characterName: null,
-    };
-    this.flipe = this.flip.bind(this);
+    }; 
   }
   flip() {
     this.setState({ flipped: this.state.flipped });
@@ -30,7 +29,7 @@ class FlipCard extends Component {
     const response = await fetch(url);
     const data = await response.json();
     this.setState({
-      flipped: true,
+      flipped: false,
       characterImage: data.results[0].image,
       characterName: data.results[0].name,
     });
