@@ -13,16 +13,15 @@ ReactDOM.render(
 class FlipCard extends Component {
   constructor(props) {
     super(props);
-
+    this.flipe = this.flip.bind(this);
     this.state = {
       flipped: false,
       characterImage: null,
       characterName: null,
     };
-    this.flipe = this.flip.bind(this);
   }
-  flip() {
-    this.setState({ flipped: this.state.flipped });
+  flip(event) {
+    this.setState({ flipped: event.state.flipped });
   }
 
   async componentDidMount() {
@@ -37,7 +36,7 @@ class FlipCard extends Component {
   }
   render() {
     return (
-      <ReactCardFlip>
+      <ReactCardFlip flipped={this.state.flipped} flipDirection="horizontal">
         <div>
           <img src={this.state.characterImage} alt="" />
           <button onClick={this.flip}>Click to Flip</button>
@@ -45,7 +44,7 @@ class FlipCard extends Component {
 
         <div>
           <h3>{this.state.characterName}</h3>
-          <button onClick={this.state.flipped}>Click to Flip</button>
+          <button onClick={this.flip}>Click to Flip</button>
         </div>
       </ReactCardFlip>
     );
