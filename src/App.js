@@ -1,12 +1,15 @@
-import logo, { ReactComponent } from "./logo.svg";
+//import logo, { ReactComponent } from "./logo.svg";//
 import "./App.css";
 import { Component } from "react";
-import ReactCardFlip from "react-card-flip";
+//import ReactCardFlip from "react-card-flip";//
 import Card from "./components/Card";
 import Loading from "./components/Loading";
+import ShowMore from "./components/ShowMore";
+
 class App extends Component {
   constructor(props) {
     super(props);
+    // this.clickHandler = this.clickHandler.bind(this);
 
     this.state = {
       // flipped: false,
@@ -27,8 +30,8 @@ class App extends Component {
       characters: data.results,
     });
   }
+
   render() {
-    console.log("this.state.characters", this.state.characters);
     if (this.state.characters.length === 0) {
       return <Loading />;
     } else {
@@ -37,19 +40,27 @@ class App extends Component {
         <div>
           {this.state.characters.map((oneCharacter, index) => {
             return (
-              <Card
-                key={oneCharacter.id}
-                character={oneCharacter}
-                index={index}
-              />
+              <div>
+                <Card
+                  key={oneCharacter.id}
+                  character={oneCharacter}
+                  index={index}
+                />
+
+                <ShowMore
+                  key={oneCharacter.status}
+                  character={oneCharacter}
+                  index={index}
+                />
+                <br />
+                
+              </div>
             );
           })}
-
-          {/* <button onClick={this.flip}>Click to Flip</button> */}
         </div>
-
-        // </ReactCardFlip>
       );
+
+      // </ReactCardFlip>
     }
   }
 }
