@@ -47,13 +47,8 @@ class App extends Component {
                   index={index}
                 />
 
-                <ShowMore
-                  key={oneCharacter.status}
-                  character={oneCharacter}
-                  index={index}
-                />
+                <ShowMore />
                 <br />
-                
               </div>
             );
           })}
