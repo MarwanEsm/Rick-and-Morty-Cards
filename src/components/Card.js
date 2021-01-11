@@ -1,11 +1,19 @@
 import React from "react";
+import Card from "react-bootstrap/Card";
 
-function Card({ character, index }) {
+import ShowMore from "./ShowMore";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+function Cards({ character, index }) {
   return (
     <div>
-      <img src={character.image} alt="" />
-      <p>{character.name}</p>
+      <Card className="text-center" border="primary" style={{ width: "18rem" }}>
+        <Card.Img variant="top" src={character.image} alt="" roundedCircle />
+        <Card.Text>{character.name}</Card.Text>
+        <ShowMore />
+      </Card>
     </div>
   );
 }
-export default Card;
+
+export default Cards;

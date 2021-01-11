@@ -2,9 +2,13 @@
 import "./App.css";
 import { Component } from "react";
 //import ReactCardFlip from "react-card-flip";//
-import Card from "./components/Card";
+import Cards from "./components/Card";
 import Loading from "./components/Loading";
-import ShowMore from "./components/ShowMore";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+
+
+
 
 class App extends Component {
   constructor(props) {
@@ -32,6 +36,12 @@ class App extends Component {
   }
 
   render() {
+    const cardStyle = {
+      width: 20,
+      hieght: 20,
+      borderColor: "red",
+      borderRadius: 3,
+    };
     if (this.state.characters.length === 0) {
       return <Loading />;
     } else {
@@ -41,20 +51,22 @@ class App extends Component {
           {this.state.characters.map((oneCharacter, index) => {
             return (
               <div>
-                <Card
+                <Cards
                   key={oneCharacter.id}
                   character={oneCharacter}
                   index={index}
+                  
                 />
-
-                <ShowMore />
+                
                 <br />
               </div>
             );
           })}
+          
         </div>
       );
-
+      
+     
       // </ReactCardFlip>
     }
   }

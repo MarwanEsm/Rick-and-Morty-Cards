@@ -5,7 +5,7 @@ function MoreInfo({ character, index }) {
   return (
     <div>
       <div>
-        <p>{"spieces is define character spieces"}</p>
+        <p>{"species is define character species "}</p>
         <p>{"status is define character status "}</p>
       </div>
       <ShowLess />

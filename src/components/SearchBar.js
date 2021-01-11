@@ -1,13 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById("root")
-);
+
 
 class SearchBar extends Component {
   constructor(props) {
@@ -62,9 +56,10 @@ class SearchBar extends Component {
         <button style={buttonStyling} onClick={this.clickHandler}>
           Search
         </button>
+        
       </fieldset>
     );
   }
 }
 
-ReactDOM.render(<SearchBar />, document.getElementById("root"));
+export default SearchBar;

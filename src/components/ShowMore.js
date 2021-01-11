@@ -1,20 +1,18 @@
 import React, { Component } from "react";
 import MoreInfo from "./MoreInfo";
 
-
 class ShowMore extends Component {
   constructor(props) {
     super(props);
     this.showMoreHandler = this.showMoreHandler.bind(this);
     this.state = {
       show: false,
-      
     };
   }
   showMoreHandler(event) {
     this.setState({
       show: true,
-   });
+    });
     event.preventDefault();
   }
   render() {
@@ -28,7 +26,9 @@ class ShowMore extends Component {
 
         <div>
           {this.state.show && (
-            <MoreInfo/>
+            <MoreInfo
+             
+            />
           )}
         </div>
       </div>
