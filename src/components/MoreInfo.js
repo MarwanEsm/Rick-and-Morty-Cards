@@ -1,6 +1,7 @@
 import React from "react";
 import ShowLess from "./ShowLess";
 
+
 function MoreInfo({ character, index }) {
   return (
     <div>

@@ -16,21 +16,19 @@ class ShowMore extends Component {
     event.preventDefault();
   }
   render() {
+    const showMoreStyle = {
+      textDecoration: "underline",
+      color: "white",
+    };
     return (
       <div>
         <div>
-          <a href="" onClick={this.showMoreHandler}>
+          <a href="" onClick={this.showMoreHandler} style={showMoreStyle}>
             Show More
           </a>
         </div>
 
-        <div>
-          {this.state.show && (
-            <MoreInfo
-             
-            />
-          )}
-        </div>
+        <div>{this.state.show && <MoreInfo />}</div>
       </div>
     );
   }
