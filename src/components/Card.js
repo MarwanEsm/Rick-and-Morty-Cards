@@ -19,18 +19,18 @@ const textStyle = {
   color: "white",
 };
 
-const divStyle = {
-  display: "flex",
-  justifyContent: "space_between",
-  flexDirection: "row",
-};
 function Cards({ character, index }) {
   return (
-    <div style={divStyle}>
-      <Card className="p-2" border="primary" style={cardStyle}>
+    <div class="d-inline-flex p-2 bd-highlight">
+      <Card
+        class="p-2 bd-highlight"
+        className="p-1"
+        border="primary"
+        style={cardStyle}
+      >
         <Card.Img src={character.image} alt="" roundedCircle />
         <Card.Text style={textStyle}>{character.name}</Card.Text>
-        <ShowMore />
+        <ShowMore/>
       </Card>
     </div>
   );

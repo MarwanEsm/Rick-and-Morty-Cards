@@ -1,14 +1,10 @@
 //import logo, { ReactComponent } from "./logo.svg";//
 import "./App.css";
-import { Component } from "react";
+import React, { Component } from "react";
 //import ReactCardFlip from "react-card-flip";//
 import Cards from "./components/Card";
 import Loading from "./components/Loading";
-
 import "bootstrap/dist/css/bootstrap.min.css";
-
-
-
 
 class App extends Component {
   constructor(props) {
@@ -55,18 +51,15 @@ class App extends Component {
                   key={oneCharacter.id}
                   character={oneCharacter}
                   index={index}
-                  
                 />
-                
+
                 <br />
               </div>
             );
           })}
-          
         </div>
       );
-      
-     
+
       // </ReactCardFlip>
     }
   }

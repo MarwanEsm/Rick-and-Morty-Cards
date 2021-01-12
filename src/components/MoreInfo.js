@@ -1,14 +1,11 @@
 import React from "react";
 import ShowLess from "./ShowLess";
 
-
 function MoreInfo({ character, index }) {
   return (
     <div>
-      <div>
-        <p>{"species is define character species "}</p>
-        <p>{"status is define character status "}</p>
-      </div>
+      <p>{"species is character.species does not work"}</p>
+      <p>{"status is character.status does not work"}</p>
       <ShowLess />
     </div>
   );
