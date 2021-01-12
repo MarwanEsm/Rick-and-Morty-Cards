@@ -30,7 +30,8 @@ function Cards({ character, index }) {
       >
         <Card.Img src={character.image} alt="" roundedCircle />
         <Card.Text style={textStyle}>{character.name}</Card.Text>
-        <ShowMore/>
+        {/* character={character} is how you pass the character to ShowMore */}
+        <ShowMore character={character} />
       </Card>
     </div>
   );
