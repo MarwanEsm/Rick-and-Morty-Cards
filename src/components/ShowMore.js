@@ -9,6 +9,7 @@ class ShowMore extends Component {
       show: false,
     };
   }
+
   showMoreHandler(event) {
     this.setState({
       show: true,
@@ -28,7 +29,10 @@ class ShowMore extends Component {
           </a>
         </div>
 
-        <div>{this.state.show && <MoreInfo />}</div>
+        <div>
+          {/* in ShowMore you receive it as a prop and pass it to MoreInfo accessing it through this.props.character */}
+          {this.state.show && <MoreInfo character={this.props.character} />}
+        </div>
       </div>
     );
   }
