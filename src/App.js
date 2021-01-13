@@ -2,7 +2,7 @@
 import "./App.css";
 import React, { Component } from "react";
 //import ReactCardFlip from "react-card-flip";//
-import Cards from "./components/Card";
+import Cards from "./components/Cards";
 import Loading from "./components/Loading";
 import "bootstrap/dist/css/bootstrap.min.css";
 

@@ -3,6 +3,7 @@ import React from "react";
 const showLessStyle = {
   textDecoration: "underline",
   color: "white",
+  fontSize : 14, 
 };
 function ShowLess() {
   return (

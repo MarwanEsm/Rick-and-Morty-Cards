@@ -20,7 +20,9 @@ class ShowMore extends Component {
     const showMoreStyle = {
       textDecoration: "underline",
       color: "white",
+      fontSize: 14,
     };
+
     return (
       <div>
         <div>
@@ -28,9 +30,7 @@ class ShowMore extends Component {
             Show More
           </a>
         </div>
-
         <div>
-          {/* in ShowMore you receive it as a prop and pass it to MoreInfo accessing it through this.props.character */}
           {this.state.show && <MoreInfo character={this.props.character} />}
         </div>
       </div>
