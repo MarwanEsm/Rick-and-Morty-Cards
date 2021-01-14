@@ -6,6 +6,7 @@ import Cards from "./components/Cards";
 import Loading from "./components/Loading";
 import SearchBar from "./components/SearchBar";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Row } from "react-bootstrap";
 
 class App extends Component {
   constructor(props) {
@@ -33,12 +34,6 @@ class App extends Component {
   }
 
   render() {
-    const cardStyle = {
-      width: 20,
-      hieght: 20,
-      borderColor: "red",
-      borderRadius: 3,
-    };
     if (this.state.characters.length === 0) {
       return <Loading />;
     } else {
@@ -50,20 +45,17 @@ class App extends Component {
           <br />
           <br />
           {/* // <ReactCardFlip> */}
-          <div>
+          <Row noGutters>
             {this.state.characters.map((oneCharacter, index) => {
               return (
-                <div>
-                  <Cards
-                    key={oneCharacter.id}
-                    character={oneCharacter}
-                    index={index}
-                  />
-                  <br />
-                </div>
+                <Cards
+                  key={oneCharacter.id}
+                  character={oneCharacter}
+                  index={index}
+                />
               );
             })}
-          </div>
+          </Row>
         </div>
       );
 

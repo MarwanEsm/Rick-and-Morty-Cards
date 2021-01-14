@@ -3,10 +3,11 @@ import Card from "react-bootstrap/Card";
 import ShowMore from "./ShowMore";
 import "react-flex/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { Col } from "react-bootstrap";
 
 const cardStyle = {
-  display: "grid",
-  width: "12rem",
+  display: "flex",
+  width: "100%",
   justifyContent: "space-between",
   alignItems: "space-betweent",
   backgroundColor: "#ff3333",
@@ -21,10 +22,9 @@ const textStyle = {
 
 function Cards({ character, index }) {
   return (
-    <div class="d-inline-flex p-2 bd-highlight">
+    <Col xs={12} sm={6} md={4} lg={3}>
       <Card
-        class="p-2 bd-highlight"
-        className="p-1"
+        // className="p-1"
         border="primary"
         style={cardStyle}
       >
@@ -32,7 +32,7 @@ function Cards({ character, index }) {
         <Card.Text style={textStyle}>{character.name}</Card.Text>
         <ShowMore character={character} />
       </Card>
-    </div>
+    </Col>
   );
 }
 

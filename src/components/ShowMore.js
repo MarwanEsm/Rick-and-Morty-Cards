@@ -11,10 +11,10 @@ class ShowMore extends Component {
   }
 
   showMoreHandler(event) {
-    this.setState({
-      show: true,
-    });
     event.preventDefault();
+    this.setState({
+      show: !this.state.show,
+    });
   }
   render() {
     const showMoreStyle = {
@@ -26,12 +26,12 @@ class ShowMore extends Component {
     return (
       <div>
         <div>
-          <a href="" onClick={this.showMoreHandler} style={showMoreStyle}>
-            Show More
-          </a>
+          {this.state.show && <MoreInfo character={this.props.character} />}
         </div>
         <div>
-          {this.state.show && <MoreInfo character={this.props.character} />}
+          <a href="" onClick={this.showMoreHandler} style={showMoreStyle}>
+            {this.state.show ? "Show Less" : "Show More"}
+          </a>
         </div>
       </div>
     );
