@@ -4,17 +4,17 @@ import ReactDOM from "react-dom";
 
 
 class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-    this.changeHandler = this.changeHandler.bind(this);
-    this.clickHandler = this.clickHandler.bind(this);
-    this.state = { search: "" };
-  }
+  // // constructor(props) {
+  // //   super(props);
+  // //   this.changeHandler = this.changeHandler.bind(this);
+  // //   this.clickHandler = this.clickHandler.bind(this);
+  // //   this.state = { search: "" };
+  // }
 
-  changeHandler(event) {
-    this.setState({ search: event.target.value });
-    event.preventDefault();
-  }
+  // changeHandler(event) {
+  //   this.setState({ search: event.target.value });
+  //   event.preventDefault();
+  // }
 
   // clickHandler(){} identify the function to display the researched Character
 
@@ -45,7 +45,7 @@ class SearchBar extends Component {
         <legend style={styleHeader}>
           Please Enter Your Favorite Character
         </legend>
-        <input
+        {/* <input
           style={searchBoxStyling}
           type="text"
           value={this.state.value}
@@ -55,7 +55,7 @@ class SearchBar extends Component {
         <br />
         <button style={buttonStyling} onClick={this.clickHandler}>
           Search
-        </button>
+        </button> */}
         
       </fieldset>
     );

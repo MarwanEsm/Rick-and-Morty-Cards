@@ -4,6 +4,7 @@ import React, { Component } from "react";
 //import ReactCardFlip from "react-card-flip";//
 import Cards from "./components/Cards";
 import Loading from "./components/Loading";
+import SearchBar from "./components/SearchBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
@@ -42,25 +43,33 @@ class App extends Component {
       return <Loading />;
     } else {
       return (
-        // <ReactCardFlip>
         <div>
-          {this.state.characters.map((oneCharacter, index) => {
-            return (
-              <div>
-                <Cards
-                  key={oneCharacter.id}
-                  character={oneCharacter}
-                  index={index}
-                />
-
-                <br />
-              </div>
-            );
-          })}
+          <div>
+            <SearchBar />
+          </div>
+          <br />
+          <br />
+          {/* // <ReactCardFlip> */}
+          <div>
+            {this.state.characters.map((oneCharacter, index) => {
+              return (
+                <div>
+                  <Cards
+                    key={oneCharacter.id}
+                    character={oneCharacter}
+                    index={index}
+                  />
+                  <br />
+                </div>
+              );
+            })}
+          </div>
         </div>
       );
 
-      // </ReactCardFlip>
+      {
+        /* // </ReactCardFlip> */
+      }
     }
   }
 }
