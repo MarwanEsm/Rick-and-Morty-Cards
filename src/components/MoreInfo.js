@@ -1,5 +1,5 @@
 import React from "react";
-import ShowLess from "./ShowLess";
+
 
 const pStyle = {
   color: "yellow",
@@ -16,7 +16,7 @@ function MoreInfo({ character, index }) {
       <p style = {pStyle}>
         {"Species is"} {character.species}
       </p>
-      <ShowLess />
+      
     </div>
   );
 }
