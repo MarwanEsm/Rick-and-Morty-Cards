@@ -16,13 +16,8 @@ class ShowMore extends Component {
       show: !this.state.show,
     });
   }
-  render() {
-    const showMoreStyle = {
-      textDecoration: "underline",
-      color: "white",
-      fontSize: 14,
-    };
 
+  render() {
     return (
       <div>
         <div>
@@ -38,4 +33,9 @@ class ShowMore extends Component {
   }
 }
 
+const showMoreStyle = {
+  textDecoration: "underline",
+  color: "white",
+  fontSize: 14,
+};
 export default ShowMore;

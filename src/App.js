@@ -1,7 +1,5 @@
-//import logo, { ReactComponent } from "./logo.svg";//
 import "./App.css";
 import React, { Component } from "react";
-//import ReactCardFlip from "react-card-flip";//
 import Cards from "./components/Cards";
 import Loading from "./components/Loading";
 import SearchBar from "./components/SearchBar";

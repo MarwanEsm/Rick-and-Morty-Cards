@@ -12,8 +12,14 @@ const cardStyle = {
   alignItems: "space-betweent",
   backgroundColor: "#ff3333",
   textAlign: "center",
+  margin: 6,
 };
 
+const colStyle = {
+  display: "flex",
+  justifyContent: "space-between",
+  alignItems: "space-betweent",
+};
 const textStyle = {
   fontSize: 14,
   fontFamily: "Segoe UI",
@@ -22,11 +28,12 @@ const textStyle = {
 
 function Cards({ character, index }) {
   return (
-    <Col xs={12} sm={6} md={4} lg={3}>
+    <Col xs={14} sm={10} md={6} lg={3} style={colStyle}>
       <Card
-        // className="p-1"
+        className="p-3"
         border="primary"
         style={cardStyle}
+        value= {character}
       >
         <Card.Img src={character.image} alt="" roundedCircle />
         <Card.Text style={textStyle}>{character.name}</Card.Text>
