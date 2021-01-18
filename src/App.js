@@ -10,7 +10,6 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.searchHandler = this.searchHandler.bind(this);
-
     this.state = {
       characters: [],
       filteredCharacters: [],
@@ -26,12 +25,13 @@ class App extends Component {
     const response = await fetch(url);
     const data = await response.json();
     this.setState({
-      characters: data.results, filteredCharacters : data.results, loading : false
+      characters: data.results,
+      filteredCharacters: data.results,
+      loading: false
     });
   }
 
   searchHandler(searchValue) {
-    console.log(this.state.characters);
    const filteredCharacters = this.state.characters.filter(character => {
       return character.name.includes(searchValue)
    })
@@ -48,14 +48,17 @@ class App extends Component {
       return (
         <div>
           <div>
-            <SearchBar searchHandler={this.searchHandler} />
+            <SearchBar
+              style={seachBarStyle}
+              searchHandler={this.searchHandler}
+            />
           </div>
           <br />
           <br />
 
           <Row noGutters>
-            {this.state.filteredCharacters.length !== 0 ? this.state.filteredCharacters.map(
-              (oneCharacter, index) => {
+            {this.state.filteredCharacters.length !== 0 ? (
+              this.state.filteredCharacters.map((oneCharacter, index) => {
                 return (
                   <Cards
                     key={oneCharacter.id}
@@ -63,8 +66,10 @@ class App extends Component {
                     index={index}
                   />
                 );
-              }
-            ) : <h1>No data</h1>}
+              })
+            ) : (
+              <h1>No data</h1>
+            )}
           </Row>
         </div>
       );
@@ -74,5 +79,7 @@ class App extends Component {
     }
   }
 }
+
+const seachBarStyle = {textAlign : 'center'}
 
 export default App;

@@ -8,7 +8,6 @@ class SearchBar extends Component {
     this.showResultHandler = this.showResultHandler.bind(this);
     this.state = {
       fCharacter: "",
-      //results: [],
     };
   }
 
@@ -18,7 +17,7 @@ class SearchBar extends Component {
   }
 
   showResultHandler() {
- this.props.searchHandler(this.state.fCharacter)
+    this.props.searchHandler(this.state.fCharacter);
   }
 
   render() {
@@ -31,7 +30,6 @@ class SearchBar extends Component {
           <input
             style={searchBoxStyling}
             type="text"
-
             value={this.state.fCharacter}
             onChange={this.changeHandler}
           />
