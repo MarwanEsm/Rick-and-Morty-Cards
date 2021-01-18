@@ -33,7 +33,6 @@ function Cards({ character, index }) {
         className="p-3"
         border="primary"
         style={cardStyle}
-        value= {character}
       >
         <Card.Img src={character.image} alt="" roundedCircle />
         <Card.Text style={textStyle}>{character.name}</Card.Text>

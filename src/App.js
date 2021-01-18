@@ -9,56 +9,67 @@ import { Row } from "react-bootstrap";
 class App extends Component {
   constructor(props) {
     super(props);
-    // this.clickHandler = this.clickHandler.bind(this);
+    this.searchHandler = this.searchHandler.bind(this);
 
     this.state = {
-      // flipped: false,
       characters: [],
+      filteredCharacters: [],
+      loading : false
     };
-    // this.flipe = this.flip.bind(this);
   }
-  // flip() {
-  //   this.setState({ flipped: this.state.flipped });
-  // }
 
   async componentDidMount() {
     const url = "https://rickandmortyapi.com/api/character/";
+       this.setState({
+        loading : true
+       });
     const response = await fetch(url);
     const data = await response.json();
     this.setState({
-      // flipped: true,
-      characters: data.results,
+      characters: data.results, filteredCharacters : data.results, loading : false
     });
   }
 
+  searchHandler(searchValue) {
+    console.log(this.state.characters);
+   const filteredCharacters = this.state.characters.filter(character => {
+      return character.name.includes(searchValue)
+   })
+       this.setState({
+         filteredCharacters: filteredCharacters,
+       });
+  }
+
   render() {
-    if (this.state.characters.length === 0) {
+    if (this.state.loading) {
       return <Loading />;
     } else {
+
       return (
         <div>
           <div>
-            <SearchBar />
+            <SearchBar searchHandler={this.searchHandler} />
           </div>
           <br />
           <br />
-          {/* // <ReactCardFlip> */}
+
           <Row noGutters>
-            {this.state.characters.map((oneCharacter, index) => {
-              return (
-                <Cards
-                  key={oneCharacter.id}
-                  character={oneCharacter}
-                  index={index}
-                />
-              );
-            })}
+            {this.state.filteredCharacters.length !== 0 ? this.state.filteredCharacters.map(
+              (oneCharacter, index) => {
+                return (
+                  <Cards
+                    key={oneCharacter.id}
+                    character={oneCharacter}
+                    index={index}
+                  />
+                );
+              }
+            ) : <h1>No data</h1>}
           </Row>
         </div>
       );
 
       {
-        /* // </ReactCardFlip> */
       }
     }
   }

@@ -1,13 +1,14 @@
 import React, { Component } from "react";
-import Cards from "./Cards";
+import Card from "react-bootstrap/Card";
 
 class SearchBar extends Component {
   constructor(props) {
     super(props);
     this.changeHandler = this.changeHandler.bind(this);
-    // this.showResultHandler = this.showResultHandler.bind(this);
+    this.showResultHandler = this.showResultHandler.bind(this);
     this.state = {
       fCharacter: "",
+      //results: [],
     };
   }
 
@@ -16,14 +17,9 @@ class SearchBar extends Component {
     this.setState({ fCharacter: event.target.value });
   }
 
-  // showResultHandler() {
-  //   if (this.state.fCharacter == character) {
-  //     return (<Cards value={fCharacter} />
-  //     )
-      
-  //   }
-    
-  // }
+  showResultHandler() {
+ this.props.searchHandler(this.state.fCharacter)
+  }
 
   render() {
     return (
@@ -35,13 +31,15 @@ class SearchBar extends Component {
           <input
             style={searchBoxStyling}
             type="text"
+
+            value={this.state.fCharacter}
             onChange={this.changeHandler}
           />
           <br />
           <br />
-          {/* <button style={buttonStyling} onClick={this.showResultHandler}>
+          <button style={buttonStyling} onClick={this.showResultHandler}>
             Search
-          </button> */}
+          </button>
         </fieldset>
       </div>
     );
@@ -65,7 +63,7 @@ const searchBoxStyling = {
   borderRadius: 5,
 };
 
-// const buttonStyling = {
-//   textAlign: "center",
-// };
+const buttonStyling = {
+  textAlign: "center",
+};
 export default SearchBar;
