@@ -7,13 +7,30 @@
     background: linear-gradient(to right, #dfc7c7, #ff6666);
 }
 
-
 .container label {
+    position: relative;
     font-size: 22px;
     color: white;
     margin-right: 20px;
-    text-shadow: 1px 1px 4px gray;
+    text-shadow: 1px 2px 4px gray;
 }
+
+.container label::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    background-color: white;
+    left: 0;
+    width: 0;
+    height: 2px;
+    transition: width 0.4s ease;
+}
+
+
+.container label:hover::after {
+    width: 100%;
+}
+
 
 .container label b {
     font-size: 22px;
@@ -26,5 +43,5 @@
     border: none;
     height: 35px;
     width: 250px;
-    box-shadow: 1px 3px 3px rgb(142, 136, 136);
+    box-shadow: 1px 1px 10px rgb(142, 136, 136);
 }
