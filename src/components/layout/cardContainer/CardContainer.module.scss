@@ -1,0 +1,25 @@
+$card-bg-color: #ff3333;
+$text-color: white;
+
+
+.card {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: space-between;
+    background-color: $card-bg-color;
+    text-align: center;
+    margin: 6px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: space-between;
+}
+
+.character_name {
+    font-size: 14px;
+    font-family: "Segoe UI";
+    color: $text-color;
+}

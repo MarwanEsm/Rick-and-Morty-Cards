@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import CardContainer from "../components/cardContainer/CardContainer";
-import Loading from "../components/loadingContent/LoadingContent";
-import SearchBar from "../components/searchBar/SearchBar";
+import CardContainer from "../components/layout/cardContainer/CardContainer";
+import LoadingContent from "../components/loadingContent/LoadingContent";
+import Header from "../components/layout/header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row } from "react-bootstrap";
 
@@ -41,16 +41,17 @@ class Home extends Component {
 
     render() {
         if (this.state.loading) {
-            return <Loading />;
+            return <LoadingContent />;
         } else {
 
             return (
                 <div>
                     <div>
-                        <SearchBar
+                        {/* <SearchBar
                             style={searchBarStyle}
                             searchHandler={this.searchHandler}
-                        />
+                        /> */}
+                        <Header />
                     </div>
                     <br />
                     <br />

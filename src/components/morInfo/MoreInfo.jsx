@@ -1,24 +1,19 @@
 import React from "react";
+import styles from "./MoreInfo.module.scss"
 
 
-const pStyle = {
-  color: "yellow",
-  fontSize: 14,
-};
+const MoreInfo = ({ character, index }) => {
+    return (
+        <div>
+            <p className={styles.status}>
+                {"Status is"} {character.status}
+            </p>
+            <p className={styles.status}>
+                {"Species is"} {character.species}
+            </p>
 
-function MoreInfo({ character, index }) {
-  return (
-    <div>
-      <br></br>
-      <p style = {pStyle}>
-        {"Status is"} {character.status}
-      </p>
-      <p style = {pStyle}>
-        {"Species is"} {character.species}
-      </p>
-      
-    </div>
-  );
+        </div>
+    );
 }
 
 export default MoreInfo;

@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    height: 70px;
+    background: linear-gradient(to right, #dfc7c7, #ff6666);
+}
+
+
+.container label {
+    font-size: 22px;
+    color: white;
+    margin-right: 20px;
+    text-shadow: 1px 1px 4px gray;
+}
+
+.container label b {
+    font-size: 22px;
+    color: red;
+    margin-left: 3px;
+}
+
+.container input {
+    border-radius: 10px;
+    border: none;
+    height: 35px;
+    width: 250px;
+    box-shadow: 1px 3px 3px rgb(142, 136, 136);
+}

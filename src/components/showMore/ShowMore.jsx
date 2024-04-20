@@ -1,41 +1,29 @@
-import React, { Component } from "react";
-import MoreInfo from "../morInfo/MoreInfo"
+import React, { useState } from "react";
+import MoreInfo from "../morInfo/MoreInfo";
+import styles from './ShowMore.module.scss'
 
-class ShowMore extends Component {
-    constructor(props) {
-        super(props);
-        this.showMoreHandler = this.showMoreHandler.bind(this);
-        this.state = {
-            show: false,
-        };
-    }
+const ShowMore = (props) => {
+    const [show, setShow] = useState(false);
 
-    showMoreHandler(event) {
+    const showMoreHandler = (event) => {
         event.preventDefault();
-        this.setState({
-            show: !this.state.show,
-        });
+        setShow(!show);
     }
 
-    render() {
-        return (
+    return (
+        <div>
             <div>
-                <div>
-                    {this.state.show && <MoreInfo character={this.props.character} />}
-                </div>
-                <div>
-                    <a href="" onClick={this.showMoreHandler} style={showMoreStyle}>
-                        {this.state.show ? "Show Less" : "Show More"}
-                    </a>
-                </div>
+                {show && <MoreInfo character={props.character} />}
             </div>
-        );
-    }
+            <div>
+                <a href="#" onClick={showMoreHandler} className={styles.showMore}>
+                    {show ? "Show Less" : "Show More"}
+                </a>
+            </div>
+        </div>
+    );
 }
 
-const showMoreStyle = {
-    textDecoration: "underline",
-    color: "white",
-    fontSize: 14,
-};
+
+
 export default ShowMore;

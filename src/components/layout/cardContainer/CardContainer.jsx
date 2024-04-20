@@ -1,11 +1,11 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import ShowMore from "../showMore/ShowMore";
-import "react-flex/index.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import ShowMore from "../../showMore/ShowMore";
 import { Col } from "react-bootstrap";
 import classNames from "classnames"
 import styles from "./CardContainer.module.scss"
+import "react-flex/index.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const CardContainer = ({ character }) => {
     return (
