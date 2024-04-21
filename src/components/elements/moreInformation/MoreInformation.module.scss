@@ -1,16 +1,27 @@
 .container {
     margin: auto;
+    width: 70%;
 }
 
 .container div {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    padding: 10px 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    transition: transform 0.3s ease;
+}
+
+.container div:hover {
+    transform: translateY(-5px);
 }
 
 .container div b {
-    color: white;
-    font-size: 22px;
+    color: #333;
+    font-size: 24px;
 }
 
 .container div span {
     font-size: 18px;
+    color: #666;
 }

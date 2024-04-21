@@ -9,7 +9,6 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 const CardContainer = ({ character, onCardSelect, index, isSelected }) => {
 
-    console.log(character);
     return <>
         {
             isSelected ?
