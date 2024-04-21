@@ -8,6 +8,7 @@ import "react-flex/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const CardContainer = ({ character }) => {
+
     return (
         <Col lg={3} md={6} sm={10} xs={14} className={styles.container}>
             <Card

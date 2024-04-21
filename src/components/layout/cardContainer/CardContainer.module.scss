@@ -1,15 +1,13 @@
-$card-bg-color: #ff3333;
-$text-color: white;
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
 
-
-.card {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: space-between;
-    background-color: $card-bg-color;
-    text-align: center;
-    margin: 6px;
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .container {
@@ -18,8 +16,19 @@ $text-color: white;
     align-items: space-between;
 }
 
+.card {
+    width: 100%;
+    background: linear-gradient(to right, #f26f6f, #f42b2b);
+    text-align: center;
+    margin: 6px;
+    border: none;
+    animation: slideIn 0.5s ease-in-out;
+    /* Apply animation */
+}
+
 .character_name {
     font-size: 14px;
     font-family: "Segoe UI";
-    color: $text-color;
+    color: white;
+    margin-top: 10px;
 }

@@ -1,4 +1,4 @@
-import SearchBar from "../../searchBar/SearchBar"
+import SearchBar from "../../elements/searchBar/SearchBar"
 import styles from "./Header.module.scss"
 import Button from "../../elements/button/Button"
 const Header = () => {

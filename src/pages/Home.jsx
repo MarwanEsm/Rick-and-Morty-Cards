@@ -3,22 +3,21 @@ import CardContainer from "../components/layout/cardContainer/CardContainer";
 import LoadingContent from "../components/elements/loadingContent/LoadingContent";
 import Header from "../components/layout/header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Row } from "react-bootstrap";
+import { Card, Row } from "react-bootstrap";
 
 const Home = () => {
     const [characters, setCharacters] = useState([]);
     const [filteredCharacters, setFilteredCharacters] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchCharacters = async () => {
-            setLoading(true);
+            setIsLoading(true);
             const url = "https://rickandmortyapi.com/api/character/";
             const response = await fetch(url);
             const data = await response.json();
             setCharacters(data.results);
-            setFilteredCharacters(data.results);
-            setLoading(false);
+            setIsLoading(false);
         };
         fetchCharacters();
     }, []);
@@ -41,23 +40,18 @@ const Home = () => {
             </div>
 
             <Row className="justify-content-center">
-                {loading ? (
-                    <LoadingContent />
-                ) : (
-                    <>
-                        {filteredCharacters.length !== 0 ? (
-                            filteredCharacters.map((character, index) => (
-                                <CardContainer
-                                    key={character.id}
-                                    character={character}
-                                    index={index}
-                                />
-                            ))
-                        ) : (
-                            <h1>No data</h1>
-                        )}
-                    </>
-                )}
+
+                {
+                    isLoading ? <LoadingContent /> :
+                        <>
+                            {
+                                characters.length > 0 && characters.map((character, index) =>
+                                    <CardContainer character={character} key={index} />
+                                )
+                            }
+                        </>
+                }
+
             </Row>
         </div>
     );
