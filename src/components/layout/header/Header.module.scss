@@ -45,3 +45,9 @@
     width: 250px;
     box-shadow: 1px 1px 10px rgb(142, 136, 136);
 }
+
+.container input:focus-visible {
+    outline-style: none;
+    border: 1px solid linear-gradient(to right, red, purple);
+
+}

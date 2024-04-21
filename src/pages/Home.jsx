@@ -56,7 +56,7 @@ class Home extends Component {
                     <br />
                     <br />
 
-                    <Row noGutters>
+                    <Row>
                         {this.state.filteredCharacters.length !== 0 ? (
                             this.state.filteredCharacters.map((character, index) => {
                                 return (

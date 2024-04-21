@@ -14,7 +14,7 @@ const CardContainer = ({ character }) => {
                 border="primary"
                 className={classNames("p-3 card", styles.card)}
             >
-                <Card.Img src={character.image} alt={`${character.name}`} roundedCircle />
+                <Card.Img src={character.image} alt={`${character.name}`} />
                 <Card.Text className={styles.character_name}>{character.name}</Card.Text>
                 <ShowMore character={character} />
             </Card>
