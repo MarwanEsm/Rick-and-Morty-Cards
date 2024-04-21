@@ -5,7 +5,7 @@ import Header from "../components/layout/header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row } from "react-bootstrap";
 
-const Home = () => {
+const DisplayPage = () => {
 
     const [characters, setCharacters] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
@@ -68,4 +68,4 @@ const Home = () => {
 
 
 
-export default Home;
+export default DisplayPage;

@@ -3,7 +3,6 @@ import styles from "./Header.module.scss"
 import Button from "../../elements/button/Button"
 
 
-
 const Header = ({ ...options }) =>
     <div className={styles.container}>
         <label>Let's find you favorite character<b>.</b></label>
