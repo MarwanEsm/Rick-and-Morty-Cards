@@ -18,6 +18,7 @@ const CardContainer = ({ character, onCardSelect, index, isSelected }) => {
                         border="primary"
                         className={classNames("p-3 card", styles.card)}
                         onClick={() => onCardSelect(index)}
+                    // onMouseLeave={() => onCardSelect(index)}
                     >
                         <MoreInformation character={character} />
                     </Card>
