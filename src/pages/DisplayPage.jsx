@@ -8,6 +8,7 @@ import { Row } from "react-bootstrap";
 const DisplayPage = () => {
 
     const [characters, setCharacters] = useState([]);
+    const [selectedCharacter, setSelectedCharacter] = useState(null)
     const [isLoading, setIsLoading] = useState(false);
     const [favoriteCharacter, setFavoriteCharacter] = useState("");
 
@@ -54,7 +55,14 @@ const DisplayPage = () => {
                                         character={character}
                                         key={index}
                                         index={index}
-                                        onCardSelect={(value) => console.log(value)}
+                                        onCardSelect={(value) => {
+                                            if (value === index && selectedCharacter === null) {
+                                                setSelectedCharacter(character)
+                                            } else {
+                                                setSelectedCharacter(null)
+                                            }
+                                        }}
+                                        isSelected={selectedCharacter?.id === character?.id}
                                     />
                                 )
                             }
