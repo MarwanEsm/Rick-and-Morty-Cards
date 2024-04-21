@@ -3,12 +3,14 @@ import CardContainer from "../components/layout/cardContainer/CardContainer";
 import LoadingContent from "../components/elements/loadingContent/LoadingContent";
 import Header from "../components/layout/header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Card, Row } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 
 const Home = () => {
+
     const [characters, setCharacters] = useState([]);
-    const [filteredCharacters, setFilteredCharacters] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const [favoriteCharacter, setFavoriteCharacter] = useState("");
+
 
     useEffect(() => {
         const fetchCharacters = async () => {
@@ -19,34 +21,41 @@ const Home = () => {
             setCharacters(data.results);
             setIsLoading(false);
         };
-        fetchCharacters();
-    }, []);
+        if (favoriteCharacter === "") {
+            fetchCharacters();
+        }
+    }, [favoriteCharacter]);
 
-    const searchHandler = (searchValue) => {
+
+    const handleSearchCharacter = () => {
         const filteredCharacters = characters.filter((character) =>
-            character.name.includes(searchValue)
+            character.name.toLowerCase().includes(favoriteCharacter.toLowerCase())
         );
-        setFilteredCharacters(filteredCharacters);
+        setCharacters(filteredCharacters);
     };
+
 
     return (
         <div>
-            <div>
-                {/* <SearchBar
-                    style={searchBarStyle}
-                    searchHandler={searchHandler}
-                /> */}
-                <Header />
-            </div>
+            <Header
+                onSearchCharacter={handleSearchCharacter}
+                onCharacterChange={(value) => setFavoriteCharacter(value)}
+                favoriteCharacter={favoriteCharacter}
+            />
 
-            <Row className="justify-content-center">
+            <Row className="justify-content-center" style={{ padding: "0 10px 0 10px" }}>
 
                 {
                     isLoading ? <LoadingContent /> :
                         <>
                             {
                                 characters.length > 0 && characters.map((character, index) =>
-                                    <CardContainer character={character} key={index} />
+                                    <CardContainer
+                                        character={character}
+                                        key={index}
+                                        index={index}
+                                        onCardSelect={(value) => console.log(value)}
+                                    />
                                 )
                             }
                         </>
@@ -57,6 +66,6 @@ const Home = () => {
     );
 };
 
-// const searchBarStyle = { textAlign: 'center' };
+
 
 export default Home;
