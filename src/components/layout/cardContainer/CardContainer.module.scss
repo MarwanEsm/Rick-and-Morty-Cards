@@ -17,11 +17,13 @@
 
 .card:hover {
     cursor: pointer;
+    transform: scale(1.05);
 }
 
 .card.flip {
     transform: rotateY(180deg);
 }
+
 
 .front,
 .back {

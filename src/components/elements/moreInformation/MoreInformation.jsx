@@ -8,8 +8,6 @@ const MoreInformation = ({ character }) =>
         {character?.status && <div><b>Status :</b><span> {character?.status}</span></div>}
         {character?.species && <div><b>Species :</b><span> {character?.species}</span></div>}
         {character?.type && <div><b>Type :</b><span> {character?.type}</span></div>}
-        {character?.gender && <div><b>Gender :</b><span> {character?.gender}</span></div>}
-        {character?.origin && <div><b>Origin :</b><span> {character?.origin.name}</span></div>}
     </div>
 
 
