@@ -1,0 +1,18 @@
+.WarningMessage {
+    color: #ff5733;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px;
+    background-color: #ffeeee;
+    border: 2px solid #ff5733;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.WarningMessage:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(255, 87, 51, 0.4);
+}

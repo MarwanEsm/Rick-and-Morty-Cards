@@ -5,7 +5,7 @@ import Button from "../../elements/button/Button"
 
 const Header = ({ ...options }) =>
     <div className={styles.container}>
-        <label>Let's find you favorite character<b>.</b></label>
+        <label>Let's find your favorite character<b>.</b></label>
         <SearchBar {...options} />
         <Button {...options} />
     </div>
