@@ -12,7 +12,7 @@ Welcome to the Ricky and Morty App! This project is a web application built with
 
 To start using the Ricky and Morty App, follow these simple steps:
 
-* Clone the Repository: git clone
+* Clone the Repository: git clone https://github.com/MarwanEsm/Ricky-and-Morty-Cards.git
 * Navigate to the Project Directory: cd ricky-and-morty-app
 * Install Dependencies: npm install
 * Start the Development Server: npm start
