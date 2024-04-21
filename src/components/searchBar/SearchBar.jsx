@@ -9,9 +9,6 @@ const SearchBar = () => {
         setFavoriteCharacter(event.target.value);
     }
 
-    // const showResultHandler = () => {
-    //     props.searchHandler(favoriteCharacter);
-    // }
 
     return <input
         type="text"

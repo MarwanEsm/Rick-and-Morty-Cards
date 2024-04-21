@@ -5,6 +5,7 @@
     padding: 15px;
     height: 70px;
     background: linear-gradient(to right, #dfc7c7, #ff6666);
+    margin-bottom: 50px;
 }
 
 .container label {
@@ -39,7 +40,7 @@
 }
 
 .container input {
-    border-radius: 10px;
+    border-radius: 6px;
     border: none;
     height: 35px;
     width: 250px;
@@ -48,6 +49,18 @@
 
 .container input:focus-visible {
     outline-style: none;
-    border: 1px solid linear-gradient(to right, red, purple);
+    border: 3px solid transparent;
+    border-image: linear-gradient(to left, #dfc7c7, #ff6666);
+    border-image-slice: 1;
+}
 
+.container button {
+    margin-left: 10px;
+    height: 35px;
+    text-align: center;
+    box-shadow: 1px 1px 3px gray;
+}
+
+.container button:hover {
+    cursor: pointer;
 }

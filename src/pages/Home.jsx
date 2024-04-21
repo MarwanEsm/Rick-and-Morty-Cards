@@ -1,82 +1,68 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import CardContainer from "../components/layout/cardContainer/CardContainer";
-import LoadingContent from "../components/loadingContent/LoadingContent";
+import LoadingContent from "../components/elements/loadingContent/LoadingContent";
 import Header from "../components/layout/header/Header";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Row } from "react-bootstrap";
 
-class Home extends Component {
-    constructor(props) {
-        super(props);
-        this.searchHandler = this.searchHandler.bind(this);
-        this.state = {
-            characters: [],
-            filteredCharacters: [],
-            loading: false
+const Home = () => {
+    const [characters, setCharacters] = useState([]);
+    const [filteredCharacters, setFilteredCharacters] = useState([]);
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        const fetchCharacters = async () => {
+            setLoading(true);
+            const url = "https://rickandmortyapi.com/api/character/";
+            const response = await fetch(url);
+            const data = await response.json();
+            setCharacters(data.results);
+            setFilteredCharacters(data.results);
+            setLoading(false);
         };
-    }
+        fetchCharacters();
+    }, []);
 
-    async componentDidMount() {
-        const url = "https://rickandmortyapi.com/api/character/";
-        this.setState({
-            loading: true
-        });
-        const response = await fetch(url);
-        const data = await response.json();
-        this.setState({
-            characters: data.results,
-            filteredCharacters: data.results,
-            loading: false
-        });
-    }
+    const searchHandler = (searchValue) => {
+        const filteredCharacters = characters.filter((character) =>
+            character.name.includes(searchValue)
+        );
+        setFilteredCharacters(filteredCharacters);
+    };
 
-    searchHandler(searchValue) {
-        const filteredCharacters = this.state.characters.filter(character => {
-            return character.name.includes(searchValue)
-        })
-        this.setState({
-            filteredCharacters: filteredCharacters,
-        });
-    }
+    return (
+        <div>
+            <div>
+                {/* <SearchBar
+                    style={searchBarStyle}
+                    searchHandler={searchHandler}
+                /> */}
+                <Header />
+            </div>
 
-    render() {
-        if (this.state.loading) {
-            return <LoadingContent />;
-        } else {
-
-            return (
-                <div>
-                    <div>
-                        {/* <SearchBar
-                            style={searchBarStyle}
-                            searchHandler={this.searchHandler}
-                        /> */}
-                        <Header />
-                    </div>
-                    <br />
-                    <br />
-
-                    <Row>
-                        {this.state.filteredCharacters.length !== 0 ? (
-                            this.state.filteredCharacters.map((character, index) => {
-                                return (
-                                    <CardContainer
-                                        key={character.id}
-                                        character={character}
-                                        index={index}
-                                    />
-                                );
-                            })
+            <Row className="justify-content-center">
+                {loading ? (
+                    <LoadingContent />
+                ) : (
+                    <>
+                        {filteredCharacters.length !== 0 ? (
+                            filteredCharacters.map((character, index) => (
+                                <CardContainer
+                                    key={character.id}
+                                    character={character}
+                                    index={index}
+                                />
+                            ))
                         ) : (
                             <h1>No data</h1>
                         )}
-                    </Row>
-                </div>
-            );
-        }
-    }
-}
+                    </>
+                )}
+            </Row>
+        </div>
+    );
+};
 
-const searchBarStyle = { textAlign: 'center' }
+// const searchBarStyle = { textAlign: 'center' };
 
 export default Home;
