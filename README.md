@@ -18,6 +18,3 @@ To start using the Rick and Morty App, follow these simple steps:
 * Start the Development Server: npm start
 * Open the App in Your Browser: Visit http://localhost:3000 in your web browser to access the app.
 
-
-![Marwan's GitHub stats](https://github-readme-stats.vercel.app/api?username=MarwanEsm&show_icons=true&theme=merko)
-
